@@ -15,17 +15,29 @@ def selection_sort(arr):
 
 
 # TO-DO:  implement the Bubble Sort function below
+# swap helper function
+def swap(i, j, arr):
+    arr[i], arr[j] = arr[j], arr[i]
+
+
 def bubble_sort(arr):
-    for i in range(len(arr)):
-        no_swap = True
-        for j in range(i, len(arr)):
-            if arr[j] < arr[i]:
-                no_swap = False
-                temp = arr[j]
-                arr[j] = arr[i]
-                arr[i] = temp
-        if no_swap:
-            break
+    # set is_sorted to show False
+    is_sorted = False
+
+    # begin while loop that only runs if the is_sorted remains False
+    while not is_sorted:
+        # tentatively set is_sorted to True
+        is_sorted = True
+
+        # begin for loop that goes until the second-to-last element
+        for i in range(len(arr) - 1):
+            # check which element is greater
+            if arr[i] > arr[i + 1]:
+                # bring in helper swap function
+                swap(i, i + 1, arr)
+
+                # and set is_sorted back to false
+                is_sorted = False
 
     return arr
 
