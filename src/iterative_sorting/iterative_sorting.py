@@ -24,13 +24,16 @@ def bubble_sort(arr):
     # set is_sorted to show False
     is_sorted = False
 
+    # add a counter variable to help shave time
+    counter = 0
+
     # begin while loop that only runs if the is_sorted remains False
     while not is_sorted:
         # tentatively set is_sorted to True
         is_sorted = True
 
         # begin for loop that goes until the second-to-last element
-        for i in range(len(arr) - 1):
+        for i in range(len(arr) - 1 - counter):
             # check which element is greater
             if arr[i] > arr[i + 1]:
                 # bring in helper swap function
@@ -38,6 +41,9 @@ def bubble_sort(arr):
 
                 # and set is_sorted back to false
                 is_sorted = False
+
+        # increment counter to tell the next for loop that we don't have to go this far again
+        counter += 1
 
     return arr
 
